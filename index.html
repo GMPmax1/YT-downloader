@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Bulk Downloader</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <h1>🎬 YouTube Bulk Downloader</h1>
+                <p>Download multiple YouTube videos with ease</p>
+            </div>
+            <div class="system-status" id="systemStatus">
+                <span class="status-indicator" id="statusIndicator"></span>
+                <span id="statusText">Checking system...</span>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <div class="step-container">
+                <div class="step" id="step1">
+                    <div class="step-header">
+                        <span class="step-number">1</span>
+                        <h2>Select Video Links File</h2>
+                    </div>
+                    <div class="step-content">
+                        <button class="file-select-btn" id="fileSelectBtn">
+                            📄 Choose .txt File
+                        </button>
+                        <div class="file-info" id="fileInfo" style="display: none;">
+                            <div class="file-name" id="fileName"></div>
+                            <div class="links-count" id="linksCount"></div>
+                        </div>
+                        <div class="links-preview" id="linksPreview" style="display: none;">
+                            <h3>Video Links:</h3>
+                            <div class="links-container" id="linksContainer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" id="step2">
+                    <div class="step-header">
+                        <span class="step-number">2</span>
+                        <h2>Choose Download Location</h2>
+                    </div>
+                    <div class="step-content">
+                        <button class="folder-select-btn" id="folderSelectBtn">
+                            📁 Select Download Folder
+                        </button>
+                        <div class="folder-info" id="folderInfo" style="display: none;">
+                            <div class="folder-path" id="folderPath"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" id="step3">
+                    <div class="step-header">
+                        <span class="step-number">3</span>
+                        <h2>Download Settings</h2>
+                    </div>
+                    <div class="step-content">
+                        <div class="settings-grid">
+                            <div class="setting-group">
+                                <label for="formatSelect">Format:</label>
+                                <select id="formatSelect">
+                                    <option value="video">Video (MP4)</option>
+                                    <option value="audio">Audio Only (M4A)</option>
+                                </select>
+                            </div>
+                            <div class="setting-group">
+                                <label for="qualitySelect">Quality:</label>
+                                <select id="qualitySelect">
+                                    <option value="720">720p</option>
+                                    <option value="1080">1080p</option>
+                                    <option value="480">480p</option>
+                                    <option value="360">360p</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step" id="step4">
+                    <div class="step-header">
+                        <span class="step-number">4</span>
+                        <h2>Download Progress</h2>
+                    </div>
+                    <div class="step-content">
+                        <button class="download-btn" id="downloadBtn" disabled>
+                            🚀 Start Download
+                        </button>
+                        <div class="progress-container" id="progressContainer" style="display: none;">
+                            <div class="overall-progress">
+                                <div class="progress-label">
+                                    <span id="progressLabel">Preparing download...</span>
+                                    <span id="progressPercent">0%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                            <div class="current-video" id="currentVideo"></div>
+                            <div class="download-stats" id="downloadStats">
+                                <span id="completedCount">0</span> completed • 
+                                <span id="failedCount">0</span> failed
+                            </div>
+                        </div>
+                        <div class="results-container" id="resultsContainer" style="display: none;">
+                            <h3>Download Results</h3>
+                            <div class="results-summary" id="resultsSummary"></div>
+                            <div class="failed-videos" id="failedVideos" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
